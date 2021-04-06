@@ -177,7 +177,7 @@ class ui_browse extends FO_Plugin
    */
   private function ShowFolder($folderId)
   {
-    $rootFolder = $this->folderDao->getRootFolder(Auth::getUserId());
+    $rootFolder = $this->folderDao->getDefaultFolder(Auth::getUserId());
     /* @var $uiFolderNav FolderNav */
     $uiFolderNav = $GLOBALS['container']->get('ui.folder.nav');
 
@@ -257,7 +257,7 @@ class ui_browse extends FO_Plugin
    */
   private function getFolderId($uploadId)
   {
-    $rootFolder = $this->folderDao->getRootFolder(Auth::getUserId());
+    $rootFolder = $this->folderDao->getDefaultFolder(Auth::getUserId());
     if (empty($uploadId)) {
       return $rootFolder->getId();
     }
