@@ -184,7 +184,7 @@ class UserEditPage extends DefaultPlugin
       $vars['folderListOption'] = FolderListOption($ParentFolder = -1, $Depth = 0, $IncludeTop = 1, $SelectedFolderPk);
     }
       $SelectedDefaultFolderPk = $UserRec['default_folder_fk'];
-      $vars['folderListOption2'] = FolderListOption($ParentFolder = -1, $Depth = 0, $IncludeTop = 1, $SelectedDefaultFolderPk);
+      $vars['folderListOption2'] = FolderListOption($ParentFolder = $UserRec['root_folder_fk'], $Depth = 0, $IncludeTop = 1, $SelectedDefaultFolderPk);
 
     $vars['isBlankPassword'] = ($UserRec['_blank_pass'] == 'on');
     $vars['agentSelector'] = AgentCheckBoxMake(-1, array("agent_unpack",

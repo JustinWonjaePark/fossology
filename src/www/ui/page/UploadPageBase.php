@@ -74,6 +74,9 @@ abstract class UploadPageBase extends DefaultPlugin
     $vars['agentCheckBoxMake'] = '';
 
     $rootFolder = $this->folderDao->getDefaultFolder(Auth::getUserId());
+    if ($rootFolder == NULL) {
+      $rootFolder = $this->folderDao->getRootFolder(Auth::getUserId());
+    }
     $folderStructure = $this->folderDao->getFolderStructure($rootFolder->getId());
 
     $vars['folderStructure'] = $folderStructure;
